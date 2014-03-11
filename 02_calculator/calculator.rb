@@ -15,6 +15,6 @@ def multiply (x, y, z = 1)
 end
 
 # def power(x)
-#	x ** x
+  # x * x 
 # end
 

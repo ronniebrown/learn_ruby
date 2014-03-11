@@ -1,17 +1,19 @@
 
 class Book
-	def title(s)
-	new_title = []
-		s.split.map do |word|
-		  if %w{the and a of an in}.include?(word)
-		  	new_title << word
-		  else
-		  	new_title << word.capitalize
-		  end
-		end
-		new_title.first.capitalize!
-		new_title.join(" ")
-	end
+  attr_reader :title
+
+  def title=(new_title)
+    words = new_title.split(" ")
+    words = [words[0].capitalize] +
+      words[1..-1].map do |word|
+        little_words = %w{a an and the in of}
+        if little_words.include? word
+          word
+        else
+          word.capitalize
+        end
+      end
+    @title = words.join(" ")
+  end
+
 end
-
-
